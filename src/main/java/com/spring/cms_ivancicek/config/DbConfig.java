@@ -33,7 +33,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(value = "com.spring.cms_ivancicek.DAL")
-@ComponentScan("com.spring.cms_ivancicek.models")
+@ComponentScan(value="com.spring.cms_ivancicek.models")
 //@EntityScan(value = "com.spring.cms_ivancicek.models")
 public class DbConfig {
 
