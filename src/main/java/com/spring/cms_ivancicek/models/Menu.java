@@ -11,38 +11,40 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "Menus", schema = "dbo")
 public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int MenuId;
+    private int menuId;
     @NotNull
-    private String Name;
-    private Integer ParentId;
+    private String name;
+    private Integer parentId;
     @NotNull
     @Enumerated(EnumType.STRING)
-    private RecordStatus RecordStatus;
+    private RecordStatus recordStatus;
     
     public int getMenuId() {
-        return MenuId;
+        return menuId;
     }
 
     public void setMenuId(int MenuId) {
-        this.MenuId = MenuId;
+        this.menuId = MenuId;
     }
    
 
     public void setName(String Name) {
-        this.Name = Name;
+        this.name = Name;
     }
 
     public void setParentId(Integer ParentId) {
-        this.ParentId = ParentId;
+        this.parentId = ParentId;
     }
 
     public void setRecordStatus(RecordStatus RecordStatus) {
-        this.RecordStatus = RecordStatus;
+        this.recordStatus = RecordStatus;
     }
 }
