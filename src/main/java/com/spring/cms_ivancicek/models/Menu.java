@@ -19,19 +19,20 @@ import javax.validation.constraints.NotNull;
 public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int menuId;
+    private Long menuId;
     @NotNull
     private String name;
-    private Integer parentId;
+    
+    private Long parentId;
     @NotNull
     @Enumerated(EnumType.STRING)
     private RecordStatus recordStatus;
     
-    public int getMenuId() {
+    public Long getMenuId() {
         return menuId;
     }
 
-    public void setMenuId(int MenuId) {
+    public void setMenuId(Long MenuId) {
         this.menuId = MenuId;
     }
    
@@ -40,11 +41,24 @@ public class Menu {
         this.name = Name;
     }
 
-    public void setParentId(Integer ParentId) {
+    public void setParentId(Long ParentId) {
         this.parentId = ParentId;
     }
 
     public void setRecordStatus(RecordStatus RecordStatus) {
         this.recordStatus = RecordStatus;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Long getParentId() {
+        return parentId;
+    }
+
+    public RecordStatus getRecordStatus() {
+        return recordStatus;
+    }
+    
 }
