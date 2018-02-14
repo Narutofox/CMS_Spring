@@ -45,6 +45,6 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:sqlserver://den1.mssql3.gear.host;databaseName=brjakocms</property>
     <property name="hibernate.connection.username">brjakocms</property>
     <property name="hibernate.connection.password">Rg3Pi8ig4~~5</property>
-    <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.SQLServer2012Dialect</property>
   </session-factory>
 </hibernate-configuration>

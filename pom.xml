@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>cms_ivancicek</name>
-	<description>Demo project for Spring Boot</description>
+	<description>CMS Spring boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

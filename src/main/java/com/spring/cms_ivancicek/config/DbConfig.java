@@ -7,6 +7,8 @@ package com.spring.cms_ivancicek.config;
 
 import javax.persistence.EntityManagerFactory;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,19 +17,23 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-/**
- *
- * @author programer10
- */
-@Configuration
-@EnableTransactionManagement
-@EnableJpaRepositories(value = "com.spring.cms_ivancicek.DAL")
-@ComponentScan(value="com.spring.cms_ivancicek.models")
+
+//@Configuration
+//@EnableTransactionManagement
+//@EnableJpaRepositories(value = "com.spring.cms_ivancicek.DAL")
+//@ComponentScan(value="com.spring.cms_ivancicek.models")
 //@EntityScan(value = "com.spring.cms_ivancicek.models")
+ 
+@Configuration
+//@EnableAutoConfiguration
+//@EntityScan(basePackages = {"com.spring.cms_ivancicek.models"})
+@EnableJpaRepositories(basePackages = {"com.spring.cms_ivancicek.DAL"})
+@EnableTransactionManagement
 public class DbConfig {
 
 //    @Autowired
@@ -46,6 +52,7 @@ public class DbConfig {
     public JpaVendorAdapter getJpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setDatabase(Database.SQL_SERVER);
+       
         return adapter;
     }
 
@@ -66,6 +73,7 @@ public class DbConfig {
 
         JpaTransactionManager txManager = new JpaTransactionManager();
         txManager.setEntityManagerFactory(entityManagerFactory());
+        txManager.setJpaDialect(new HibernateJpaDialect());
         return txManager;
     }
     
