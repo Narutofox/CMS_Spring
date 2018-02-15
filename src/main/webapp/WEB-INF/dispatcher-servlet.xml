@@ -17,6 +17,7 @@
     <aop:aspectj-autoproxy />
     
     <mvc:annotation-driven />
+    <mvc:resources mapping="/**" location="/" />
     <mvc:resources mapping="/content/**" location="/content/" />
     <mvc:resources mapping="/content/js/**" location="/content/js/" />
     <mvc:resources mapping="/content/css/**" location="/content/css/" />
